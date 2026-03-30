@@ -1,0 +1,12 @@
+- [ ] 1. Create a deployable Node web app
+  - [ ] 1.1 Scaffold server and static frontend assets
+  - [ ] 1.2 Implement live editor and preview with default `Hello 1!!`
+- [ ] 2. Add AI capabilities
+  - [ ] 2.1 Build OpenRouter-backed suggestion endpoint
+  - [ ] 2.2 Render and apply user-facing AI suggestions
+- [ ] 3. Add share/publish flow
+  - [ ] 3.1 Encode draft state into a shareable public URL
+  - [ ] 3.2 Store recent drafts locally and support reopen/delete
+- [ ] 4. Verify and ship
+  - [ ] 4.1 Run lint/build/start checks
+  - [ ] 4.2 Deploy to Cloud Run and smoke test
