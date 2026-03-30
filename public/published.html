@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Forge Published</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Bebas+Neue&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="published-body">
+    <main id="published-root" class="published-root">
+      <p class="preview-kicker">published with Hello Forge</p>
+      <h1 id="published-text">Hello 1!!</h1>
+    </main>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const dataParam = params.get('data');
+      const root = document.getElementById('published-root');
+      const text = document.getElementById('published-text');
+      const fonts = { display: '"Bebas Neue", sans-serif', sans: '"DM Sans", sans-serif', serif: '"Playfair Display", serif' };
+      if (dataParam) {
+        try {
+          const decoded = JSON.parse(atob(dataParam));
+          text.textContent = decoded.message || 'Hello 1!!';
+          root.style.background = decoded.background || '#0b1014';
+          root.style.color = decoded.foreground || '#f9fafb';
+          root.style.justifyItems = decoded.align === 'left' ? 'start' : decoded.align === 'right' ? 'end' : 'center';
+          text.style.fontSize = `${decoded.size || 72}px`;
+          text.style.fontFamily = fonts[decoded.font] || fonts.display;
+          document.documentElement.style.setProperty('--accent', decoded.accent || '#f59e0b');
+        } catch (_error) {}
+      }
+    </script>
+  </body>
+</html>

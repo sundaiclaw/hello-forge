@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Forge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Bebas+Neue&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">AI microsite builder</p>
+          <h1>Hello Forge</h1>
+          <p class="subcopy">Start with the supplied design seed, refine it with AI, and publish a shareable one-line page.</p>
+        </div>
+        <a class="ghost-link" href="/published?data=eyJtZXNzYWdlIjoiSGVsbG8gMSEhIiwiYmFja2dyb3VuZCI6IiMwYjEwMTQiLCJmb3JlZ3JvdW5kIjoiI2Y5ZmFmYiIsImFjY2VudCI6IiNmNTllMGIiLCJhbGlnbiI6ImNlbnRlciIsInNpemUiOjcyLCJmb250IjoiZGlzcGxheSJ9" target="_blank" rel="noreferrer">See default published page</a>
+      </header>
+
+      <main class="layout">
+        <section class="panel controls">
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" rows="3">Hello 1!!</textarea>
+          </div>
+
+          <div class="grid two-up">
+            <div class="field">
+              <label for="tone">AI tone</label>
+              <select id="tone">
+                <option>playful</option>
+                <option>bold</option>
+                <option>friendly</option>
+                <option>dramatic</option>
+                <option>retro internet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="intent">Intent</label>
+              <input id="intent" value="friendly launch splash" />
+            </div>
+          </div>
+
+          <div class="grid two-up">
+            <div class="field">
+              <label for="background">Background</label>
+              <input id="background" type="color" value="#0b1014" />
+            </div>
+            <div class="field">
+              <label for="foreground">Text color</label>
+              <input id="foreground" type="color" value="#f9fafb" />
+            </div>
+          </div>
+
+          <div class="grid two-up">
+            <div class="field">
+              <label for="accent">Accent</label>
+              <input id="accent" type="color" value="#f59e0b" />
+            </div>
+            <div class="field">
+              <label for="align">Alignment</label>
+              <select id="align">
+                <option value="center">Center</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid two-up">
+            <div class="field">
+              <label for="font">Font</label>
+              <select id="font">
+                <option value="display">Bebas Neue</option>
+                <option value="sans">DM Sans</option>
+                <option value="serif">Playfair Display</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="size">Size</label>
+              <input id="size" type="range" min="36" max="140" value="72" />
+              <div class="range-note"><span id="size-value">72</span> px</div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="save-draft" class="secondary">Save draft</button>
+            <button id="ask-ai">Ask AI</button>
+            <button id="publish" class="primary">Publish</button>
+          </div>
+
+          <div id="status" class="status" aria-live="polite"></div>
+
+          <section class="panel suggestions-panel nested">
+            <div class="section-head">
+              <h2>AI suggestions</h2>
+              <span id="model-pill" class="pill">Waiting</span>
+            </div>
+            <div id="suggestions" class="suggestions empty">No suggestions yet. Ask AI to get copy and style directions.</div>
+          </section>
+        </section>
+
+        <section class="preview-column">
+          <div class="panel preview-shell">
+            <div class="section-head">
+              <h2>Live preview</h2>
+              <span class="pill">Design seed: Hello 1!!</span>
+            </div>
+            <div id="preview" class="preview-canvas">
+              <div>
+                <p class="preview-kicker">shareable page</p>
+                <h2 id="preview-text">Hello 1!!</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel history-panel">
+            <div class="section-head">
+              <h2>Recent drafts</h2>
+              <button id="clear-history" class="linkish">Clear</button>
+            </div>
+            <div id="history" class="history-list empty">No drafts saved yet.</div>
+          </div>
+
+          <div id="publish-result" class="panel publish-result hidden"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
